@@ -1,0 +1,254 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88D4A230-A770-4A65-885C-CF066554327A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>provider</RootNamespace>
+    <AssemblyName>provider</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Encounter\EncounterService.svc" />
+    <Content Include="Facility1\FacilityService.svc" />
+    <Content Include="Insurance\InsuranceService.svc" />
+    <Content Include="Masters\MasterService.svc" />
+    <Content Include="Patients\PatientService.svc" />
+    <Content Include="provider\Provider.svc" />
+    <Content Include="Service1.svc" />
+    <Content Include="Users\UserService.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="client\AppointmentStatusList.cs" />
+    <Compile Include="DBcontext\IDbContext.cs" />
+    <Compile Include="Encounter\EncounterService.svc.cs">
+      <DependentUpon>EncounterService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Encounter\IEncounterService.cs" />
+    <Compile Include="Enitity Model\AppointmentStatu.cs" />
+    <Compile Include="Enitity Model\Bill.cs" />
+    <Compile Include="Enitity Model\ClaimBill.cs" />
+    <Compile Include="Enitity Model\ClaimFillingIndicator.cs" />
+    <Compile Include="Enitity Model\ClaimReceipt.cs" />
+    <Compile Include="Enitity Model\ClaimStatus.cs" />
+    <Compile Include="Enitity Model\ClientAccountSetup.cs" />
+    <Compile Include="Enitity Model\ClientSetup.cs" />
+    <Compile Include="Enitity Model\CommonMaster.cs" />
+    <Compile Include="Enitity Model\Department.cs" />
+    <Compile Include="Enitity Model\EDI835ClaimResponseDetails.cs" />
+    <Compile Include="Enitity Model\EDI837PTransaction.cs" />
+    <Compile Include="Enitity Model\EDIHospitalClaimSubmittedHistory.cs" />
+    <Compile Include="Enitity Model\Ethnicity.cs" />
+    <Compile Include="Enitity Model\FeeSchedule.cs" />
+    <Compile Include="Enitity Model\HolidaySetup.cs" />
+    <Compile Include="Enitity Model\HospitalClaim.cs" />
+    <Compile Include="Enitity Model\HourCode.cs" />
+    <Compile Include="Enitity Model\Inquiry.cs" />
+    <Compile Include="Enitity Model\InquiryDetail.cs" />
+    <Compile Include="Enitity Model\InsuranceCategory.cs" />
+    <Compile Include="Enitity Model\InsuranceCompany.cs" />
+    <Compile Include="Enitity Model\InsuranceType.cs" />
+    <Compile Include="Enitity Model\ModuleSetup.cs" />
+    <Compile Include="Enitity Model\Patient.cs" />
+    <Compile Include="Enitity Model\PatientContactPersonType.cs" />
+    <Compile Include="Enitity Model\PatientDischargeStatus.cs" />
+    <Compile Include="Enitity Model\PatientRelation.cs" />
+    <Compile Include="Enitity Model\PracticeFeeSchedule.cs" />
+    <Compile Include="Enitity Model\Product.cs" />
+    <Compile Include="Enitity Model\ProviderLocation.cs" />
+    <Compile Include="Enitity Model\Facility.cs" />
+    <Compile Include="Enitity Model\PatientAppointment.cs" />
+    <Compile Include="Enitity Model\Race.cs" />
+    <Compile Include="Enitity Model\Receipt.cs" />
+    <Compile Include="Enitity Model\RegionalLanguage.cs" />
+    <Compile Include="Enitity Model\RxOrderServiceUserSetup.cs" />
+    <Compile Include="Enitity Model\SalesPerson.cs" />
+    <Compile Include="Enitity Model\SchedulerSetup.cs" />
+    <Compile Include="Enitity Model\SourceOfAdmission.cs" />
+    <Compile Include="Enitity Model\TypeOfSubmission.cs" />
+    <Compile Include="Enitity Model\User.cs" />
+    <Compile Include="Facility1\FacilityService.svc.cs">
+      <DependentUpon>FacilityService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Facility1\IFacilityService.cs" />
+    <Compile Include="Insurance\IInsuranceService.cs" />
+    <Compile Include="Insurance\InsuranceService.svc.cs">
+      <DependentUpon>InsuranceService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\IMasterService.cs" />
+    <Compile Include="Masters\MasterService.svc.cs">
+      <DependentUpon>MasterService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Patient Model\PatientAppointmentModel.cs" />
+    <Compile Include="Patients\IPatientService.cs" />
+    <Compile Include="Patients\PatientService.svc.cs">
+      <DependentUpon>PatientService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="provider\IProvider.cs" />
+    <Compile Include="provider\Provider.svc.cs">
+      <DependentUpon>Provider.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\EfRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IService1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit of work\IUnitOfWork.cs" />
+    <Compile Include="Unit of work\UnitOfWork.cs" />
+    <Compile Include="Users\IUserService.cs" />
+    <Compile Include="Users\UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AppointmentDashboardDetailsModel.cs" />
+    <Compile Include="ViewModel\AppointmentStatuModel.cs" />
+    <Compile Include="ViewModel\DashboardBillModel.cs" />
+    <Compile Include="ViewModel\DashboardClientSetupModel .cs" />
+    <Compile Include="ViewModel\DashboardEHRUserGridInformationListModel.cs" />
+    <Compile Include="ViewModel\DashboardInquiryDetailModel.cs" />
+    <Compile Include="ViewModel\DashboardInquiryModel.cs" />
+    <Compile Include="ViewModel\DashboardRCMUserGridInformationListModel.cs" />
+    <Compile Include="ViewModel\DashboardReceiptModel.cs" />
+    <Compile Include="ViewModel\DepartmentModel.cs" />
+    <Compile Include="ViewModel\EthnicityModel.cs" />
+    <Compile Include="ViewModel\FacilityMapModel.cs" />
+    <Compile Include="ViewModel\FacilityModel.cs" />
+    <Compile Include="ViewModel\FeeScheduleModel.cs" />
+    <Compile Include="ViewModel\HolidaySetupModel.cs" />
+    <Compile Include="ViewModel\HourCodeModel.cs" />
+    <Compile Include="ViewModel\InsuranceCategoryModel.cs" />
+    <Compile Include="ViewModel\InsuranceCompanyModel.cs" />
+    <Compile Include="ViewModel\InsuranceTypeModel.cs" />
+    <Compile Include="ViewModel\ModuleSetupModel.cs" />
+    <Compile Include="ViewModel\PatientContactPersonTypeModel.cs" />
+    <Compile Include="ViewModel\PatientDischargeStatusModel.cs" />
+    <Compile Include="ViewModel\PatientInsuranceModel.cs" />
+    <Compile Include="ViewModel\PatientModel.cs" />
+    <Compile Include="ViewModel\PatientRelationModel.cs" />
+    <Compile Include="ViewModel\PracticeFeeScheduleModel.cs" />
+    <Compile Include="ViewModel\ProviderModel.cs" />
+    <Compile Include="ViewModel\public partial class TypeOfSubmissionModel.cs" />
+    <Compile Include="ViewModel\RaceModel.cs" />
+    <Compile Include="ViewModel\RegionalLanguageModel.cs" />
+    <Compile Include="ViewModel\RxOrderServiceUserSetupModel.cs" />
+    <Compile Include="ViewModel\SchedulerSetupModel.cs" />
+    <Compile Include="ViewModel\SourceOfAdmissionModel.cs" />
+    <Compile Include="ViewModel\UserModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50288</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50288/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
